@@ -10,36 +10,55 @@ async function searchPokemon() {
         function createURL(a){
             return `https://pokeapi.co/api/v2/pokemon/${a}`
         }
-    //Prueba de codigo
-    // console.log(createURL(userInput))
-
     // Conectar con la API
         let response = await fetch(`${createURL(userInput)}`);
         let pokemon = await  response.json();
 
-    //Nombre y foto sacadas de la API
+    //Nombre, nivel y foto sacadas de la API
         let pokemonNameAPI = pokemon["name"];
         let pokemonImgAPI = pokemon["sprites"]["front_default"];
-
-    //Stats sacadas de la API
         let pokemonXPAPI = pokemon["base_experience"];
 
+    //Stats sacadas de la API
+        let pokemonHPAPI = pokemon["stats"][0]["base_stat"];
+        let pokemonADAPI = pokemon["stats"][1]["base_stat"];
+        let pokemonDFAPI = pokemon["stats"][2]["base_stat"];
+        let pokemonSPAPI = pokemon["stats"][5]["base_stat"];
 
     //Habilidades sacadas de la API
+        //Habilidad Uno
+            let ability1 = pokemon["abilities"][0]["ability"]["name"];
+            let ability1URL = pokemon["abilities"][0]["ability"]["url"];
+        //Habilidad Uno
+            let ability2 = pokemon["abilities"][1]["ability"]["name"];
+            let ability2URL = pokemon["abilities"][1]["ability"]["url"];
 
-            //Value
 
+    //Prueba de codigo para saber si los valores son correctos.
 
-    //Probar que los valores sean validos
-        console.log(pokemonNameAPI)
-        console.log(pokemonImgAPI)
-        console.log(pokemonXPAPI)
+         //Nombre, nivel y foto
+            console.log(`El nombre es: ${pokemonNameAPI}`)
+            console.log(pokemonImgAPI)
+            console.log(pokemonXPAPI)
+        //Stats
+            console.log(pokemonHPAPI)
+            console.log(pokemonADAPI)
+            console.log(pokemonDFAPI)
+            console.log(pokemonSPAPI)
+        //Habilidades
+            //1
+                console.log(ability1)
+                console.log(ability1URL)
+            //2
+                console.log(ability2)
+                console.log(ability2URL);
 
     //======================================================================//
     //Declaracion de valores del DOM
-        //Nombre y foto
+        //Nombre, nivel y foto
             let pokemonNombreDOM = document.getElementById("pokemonNombre");
-            let pokemonimagenDOM = document.getElementById("pokemonImagen");
+            let pokemonImagenDOM = document.getElementById("pokemonImagen");
+            let pokemonNivelDOM = document.getElementById("pokemonNivel");
         //Stats
             let Stat1DOM = document.getElementById("statUno");
             let Stat2DOM = document.getElementById("statDos");
@@ -51,13 +70,22 @@ async function searchPokemon() {
     //======================================================================//
 
     //Cambio de valores en el DOM
-        //Nombre y foto
+        //Nombre, nivel y foto
             pokemonNombreDOM.innerHTML = `${[pokemonNameAPI]}`
-            pokemonimagenDOM.src = `${[pokemonImgAPI]}`
+            pokemonImagenDOM.src = `${[pokemonImgAPI]}`
+            pokemonNivelDOM.innerHTML = `${pokemonXPAPI}`;
         //Stats
-
+            Stat1DOM.innerHTML = `${pokemonHPAPI}`;
+            Stat2DOM.innerHTML = `${pokemonADAPI}`;
+            Stat3DOM.innerHTML = `${pokemonDFAPI}`;
+            Stat4DOM.innerHTML = `${pokemonSPAPI}`;
         //Habilidades
-
+            //1
+                ability1DOM.innerHTML = `${ability1}`;
+                ability1DOM.href = `${ability1URL}`;
+            //2
+                ability2DOM.innerHTML = `${ability2}`;
+                ability2DOM.href = `${ability2URL}`;
 //Aparecer contenedor
 element.classList.remove("invisible");
 }   
