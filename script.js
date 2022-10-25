@@ -1,6 +1,7 @@
 //Entrada de texto del usuario
 async function searchPokemon() {
-
+    //Declarar codigo en el DOM
+    let element = document.getElementById("PokemonContainer");
     //Sacar input del usuario
         let userInput= document.getElementById("valorForm").value;
 
@@ -33,29 +34,30 @@ async function searchPokemon() {
         console.log(pokemonNameAPI)
         console.log(pokemonImgAPI)
         console.log(pokemonXPAPI)
-    //Aparecer contenedor
-        let element = document.getElementById("PokemonContainer");
-        element.classList.remove("invisible");
+
+    //======================================================================//
     //Declaracion de valores del DOM
         //Nombre y foto
             let pokemonNombreDOM = document.getElementById("pokemonNombre");
             let pokemonimagenDOM = document.getElementById("pokemonImagen");
-        //Stats sacadas de la API
+        //Stats
             let Stat1DOM = document.getElementById("statUno");
             let Stat2DOM = document.getElementById("statDos");
             let Stat3DOM = document.getElementById("statTres");
             let Stat4DOM = document.getElementById("statCuatro");
-        //Habilidades sacadas de la API
-
-
+        //Habilidades 
+            let ability1DOM = document.getElementById("habilidadUno");
+            let ability2DOM = document.getElementById("habilidadDos");
+    //======================================================================//
 
     //Cambio de valores en el DOM
         //Nombre y foto
             pokemonNombreDOM.innerHTML = `${[pokemonNameAPI]}`
             pokemonimagenDOM.src = `${[pokemonImgAPI]}`
-        //Stats sacadas de la API
+        //Stats
 
-        //Habilidades sacadas de la API
+        //Habilidades
 
-
+//Aparecer contenedor
+element.classList.remove("invisible");
 }   
