@@ -2,3 +2,9 @@
     filter: drop-shadow(0 0 0.75rem crimson);
     border-radius: 20px;
 }
+body{
+    background-image: url(https://thumbs.gfycat.com/FrenchFastJaguar-max-1mb.gif);
+    background-position: bottom;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
