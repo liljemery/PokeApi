@@ -1,6 +1,6 @@
 //Entrada de texto del usuario
 async function searchPokemon() {
-    //Declarar codigo en el DOM
+    //Recurso de contenedor para utilizar mas tarde
     let element = document.getElementById("PokemonContainer");
     //Sacar input del usuario
         let userInput= document.getElementById("valorForm").value;
@@ -68,7 +68,6 @@ async function searchPokemon() {
             let ability1DOM = document.getElementById("habilidadUno");
             let ability2DOM = document.getElementById("habilidadDos");
     //======================================================================//
-
     //Cambio de valores en el DOM
         //Nombre, nivel y foto
             pokemonNombreDOM.innerHTML = `${[pokemonNameAPI]}`
@@ -86,6 +85,8 @@ async function searchPokemon() {
             //2
                 ability2DOM.innerHTML = `${ability2}`;
                 ability2DOM.href = `${ability2URL}`;
+    //======================================================================//
+
 //Aparecer contenedor
 element.classList.remove("invisible");
 }   
