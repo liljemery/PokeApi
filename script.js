@@ -31,26 +31,23 @@ async function searchPokemon() {
                 let ability2 = pokemon["abilities"][1]["ability"]["name"];
                 let ability2URL = pokemon["abilities"][1]["ability"]["url"];
     //======================================================================//
-
-    //Prueba de codigo para saber si los valores son correctos.
-
-         //Nombre, nivel y foto
-            console.log(pokemonNameAPI)
-            console.log(pokemonImgAPI)
-            console.log(pokemonXPAPI)
-        //Stats
-            console.log(pokemonHPAPI)
-            console.log(pokemonADAPI)
-            console.log(pokemonDFAPI)
-            console.log(pokemonSPAPI)
-        //Habilidades
-            //1
-                console.log(ability1)
-                console.log(ability1URL)
-            //2
-                console.log(ability2)
-                console.log(ability2URL);
-
+    //Guardar informacion de la API en la sesion Local
+        //Nombre, nivel y foto sacadas de la API
+            localStorage.setItem("NameFromAPI",pokemonNameAPI);
+            localStorage.setItem("ImgFromAPI",pokemonImgAPI);
+            localStorage.setItem("XPFromAPI",pokemonXPAPI);
+        //Stats sacadas de la API
+            localStorage.setItem("HPFromAPI",pokemonHPAPI);
+            localStorage.setItem("ADFromAPI",pokemonADAPI);
+            localStorage.setItem("DFFromAPI",pokemonDFAPI);
+            localStorage.setItem("SPFromAPI",pokemonSPAPI);
+        //Habilidades sacadas de la API
+             //Habilidad Uno
+                localStorage.setItem("ability1",ability1);
+                localStorage.setItem("ability1URL",ability1URL);
+             //Habilidad Uno
+                localStorage.setItem("ability2",ability2);
+                localStorage.setItem("ability2URL",ability2URL);
     //======================================================================//
     //Declaracion de valores del DOM
         //Nombre, nivel y foto
@@ -68,21 +65,21 @@ async function searchPokemon() {
     //======================================================================//
     //Cambio de valores en el DOM
         //Nombre, nivel y foto
-            pokemonNombreDOM.innerHTML = `${[pokemonNameAPI]}`
-            pokemonImagenDOM.src = `${[pokemonImgAPI]}`
-            pokemonNivelDOM.innerHTML = `${pokemonXPAPI}`;
+            pokemonNombreDOM.innerHTML = `${localStorage.getItem("NameFromAPI")}`
+            pokemonImagenDOM.src = `${localStorage.getItem("ImgFromAPI")}`
+            pokemonNivelDOM.innerHTML = `${localStorage.getItem("XPFromAPI")}`;
         //Stats
-            Stat1DOM.innerHTML = `${pokemonHPAPI}`;
-            Stat2DOM.innerHTML = `${pokemonADAPI}`;
-            Stat3DOM.innerHTML = `${pokemonDFAPI}`;
-            Stat4DOM.innerHTML = `${pokemonSPAPI}`;
+            Stat1DOM.innerHTML = `${localStorage.getItem("HPFromAPI")}`;
+            Stat2DOM.innerHTML = `${localStorage.getItem("ADFromAPI")}`;
+            Stat3DOM.innerHTML = `${localStorage.getItem("DFFromAPI")}`;
+            Stat4DOM.innerHTML = `${localStorage.getItem("SPFromAPI")}`;
         //Habilidades
             //1
-                ability1DOM.innerHTML = `${ability1}`;
-                ability1DOM.href = `${ability1URL}`;
+                ability1DOM.innerHTML = `${localStorage.getItem("ability1")}`;
+                ability1DOM.href = `${localStorage.getItem("ability1URL")}`;
             //2
-                ability2DOM.innerHTML = `${ability2}`;
-                ability2DOM.href = `${ability2URL}`;
+                ability2DOM.innerHTML = `${localStorage.getItem("ability2")}`;
+                ability2DOM.href = `${localStorage.getItem("ability2URL")}`;
     //======================================================================//
 
 //Aparecer contenedor
