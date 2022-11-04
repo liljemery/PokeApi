@@ -1,7 +1,20 @@
-//Entrada de texto del usuario
+    //======================================================================//
+    //Declaracion de valores del DOM
+        //Nombre, nivel y foto
+        let pokemonNombreDOM = document.getElementById("pokemonNombre");
+        let pokemonImagenDOM = document.getElementById("pokemonImagen");
+        let pokemonNivelDOM = document.getElementById("pokemonNivel");
+    //Stats
+        let Stat1DOM = document.getElementById("statUno");
+        let Stat2DOM = document.getElementById("statDos");
+        let Stat3DOM = document.getElementById("statTres");
+        let Stat4DOM = document.getElementById("statCuatro");
+    //Habilidades 
+        let ability1DOM = document.getElementById("habilidadUno");
+        let ability2DOM = document.getElementById("habilidadDos");
+//======================================================================//
 async function searchPokemon() {
     //Recurso de contenedor para utilizar mas tarde
-    let element = document.getElementById("PokemonContainer");
     //Sacar input del usuario
         let userInput= document.getElementById("valorForm").value;
     //Recurso para crear URL para conectar con la API
@@ -11,7 +24,6 @@ async function searchPokemon() {
     //Conectar con la API
         let response = await fetch(`${createURL(userInput)}`);
         let pokemon = await  response.json();
-
     //======================================================================//
     //Sacar informacion de la API
         //Nombre, nivel y foto sacadas de la API
@@ -48,40 +60,35 @@ async function searchPokemon() {
              //Habilidad Uno
                 localStorage.setItem("ability2",ability2);
                 localStorage.setItem("ability2URL",ability2URL);
-    //======================================================================//
-    //Declaracion de valores del DOM
-        //Nombre, nivel y foto
-            let pokemonNombreDOM = document.getElementById("pokemonNombre");
-            let pokemonImagenDOM = document.getElementById("pokemonImagen");
-            let pokemonNivelDOM = document.getElementById("pokemonNivel");
-        //Stats
-            let Stat1DOM = document.getElementById("statUno");
-            let Stat2DOM = document.getElementById("statDos");
-            let Stat3DOM = document.getElementById("statTres");
-            let Stat4DOM = document.getElementById("statCuatro");
-        //Habilidades 
-            let ability1DOM = document.getElementById("habilidadUno");
-            let ability2DOM = document.getElementById("habilidadDos");
-    //======================================================================//
+    //Retorno de valores a almacenar luego que se complete la busqueda
+            return pokemonNombreDOM.innerHTML = `${localStorage.getItem("NameFromAPI")}`,
+            pokemonImagenDOM.src = `${localStorage.getItem("ImgFromAPI")}`,
+            pokemonNivelDOM.innerHTML = `${localStorage.getItem("XPFromAPI")}`,
+            Stat1DOM.innerHTML = `${localStorage.getItem("HPFromAPI")}`,
+            Stat2DOM.innerHTML = `${localStorage.getItem("ADFromAPI")}`,
+            Stat3DOM.innerHTML = `${localStorage.getItem("DFFromAPI")}`,
+            Stat4DOM.innerHTML = `${localStorage.getItem("SPFromAPI")}`,
+            ability1DOM.innerHTML = `${localStorage.getItem("ability1")}`,
+            ability1DOM.href = `${localStorage.getItem("ability1URL")}`,
+            ability2DOM.innerHTML = `${localStorage.getItem("ability2")}`,
+            ability2DOM.href = `${localStorage.getItem("ability2URL")}`;
+            
+}
     //Cambio de valores en el DOM
         //Nombre, nivel y foto
-            pokemonNombreDOM.innerHTML = `${localStorage.getItem("NameFromAPI")}`
-            pokemonImagenDOM.src = `${localStorage.getItem("ImgFromAPI")}`
-            pokemonNivelDOM.innerHTML = `${localStorage.getItem("XPFromAPI")}`;
-        //Stats
-            Stat1DOM.innerHTML = `${localStorage.getItem("HPFromAPI")}`;
-            Stat2DOM.innerHTML = `${localStorage.getItem("ADFromAPI")}`;
-            Stat3DOM.innerHTML = `${localStorage.getItem("DFFromAPI")}`;
-            Stat4DOM.innerHTML = `${localStorage.getItem("SPFromAPI")}`;
-        //Habilidades
-            //1
-                ability1DOM.innerHTML = `${localStorage.getItem("ability1")}`;
-                ability1DOM.href = `${localStorage.getItem("ability1URL")}`;
-            //2
-                ability2DOM.innerHTML = `${localStorage.getItem("ability2")}`;
-                ability2DOM.href = `${localStorage.getItem("ability2URL")}`;
-    //======================================================================//
-
-//Aparecer contenedor
-element.classList.remove("invisible");
-}   
+        pokemonNombreDOM.innerHTML = `${localStorage.getItem("NameFromAPI")}`
+        pokemonImagenDOM.src = `${localStorage.getItem("ImgFromAPI")}`
+        pokemonNivelDOM.innerHTML = `${localStorage.getItem("XPFromAPI")}`;
+    //Stats
+        Stat1DOM.innerHTML = `${localStorage.getItem("HPFromAPI")}`;
+        Stat2DOM.innerHTML = `${localStorage.getItem("ADFromAPI")}`;
+        Stat3DOM.innerHTML = `${localStorage.getItem("DFFromAPI")}`;
+        Stat4DOM.innerHTML = `${localStorage.getItem("SPFromAPI")}`;
+    //Habilidades
+        //1
+            ability1DOM.innerHTML = `${localStorage.getItem("ability1")}`;
+            ability1DOM.href = `${localStorage.getItem("ability1URL")}`;
+        //2
+            ability2DOM.innerHTML = `${localStorage.getItem("ability2")}`;
+            ability2DOM.href = `${localStorage.getItem("ability2URL")}`;
+//======================================================================//
